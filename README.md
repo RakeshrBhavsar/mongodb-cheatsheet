@@ -100,8 +100,7 @@ boolean | true/false
 ### Fields Filtering (Projections)
 
    Example: 
-   
-    ```javascript
+   ```javascript
     db.persons.find( {query}, { name : 1, age : 1, gender : 1} )
-    ```
+   ```
        
