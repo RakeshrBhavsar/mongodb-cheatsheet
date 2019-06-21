@@ -104,3 +104,36 @@ boolean | true/false
     db.persons.find( {query}, { name : 1, age : 1, gender : 1} )
    ```
        
+### Update Documents
+
+1. `db.<collectionName>.update( <query>,<update>,<options> )`
+
+2. `db.<collectionName>.updateOne( <query>,<update>,<options> )`
+
+3. `db.<collectionName>.updateMany( <query>,<update>,<options> )`
+
+Update can be done using **$set** and **$unset** operator. 
+Examples: 
+update the first document where **item** equals **"paper"**:
+
+        ```javascript
+        db.inventory.updateOne(
+           { item: "paper" },
+           {
+             $set: { "size.uom": "cm", status: "P" },
+             $currentDate: { lastModified: true }
+           }
+        )
+        ```
+        
+update all documents where **qty** is **less than 50**.
+
+        ```javascript
+        db.inventory.updateMany(
+           { "qty": { $lt: 50 } },
+           {
+             $set: { "size.uom": "in", status: "P" },
+             $currentDate: { lastModified: true }
+           }
+        )
+        ```
