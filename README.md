@@ -95,3 +95,11 @@ boolean | true/false
     { "tags" : { $exists: true } }
     { "posts" : { $type : "int"} }
     ```
+    
+    
+### Fields Filtering (Projections)
+
+    Example: 
+    ```javascript
+    db.persons.find( {query}, { name : 1, age : 1, gender : 1} )
+    ```
