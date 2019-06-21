@@ -106,6 +106,8 @@ boolean | true/false
        
 ### Update Documents
 
+Syntax: 
+
 1. `db.<collectionName>.update( <query>,<update>,<options> )`
 
 2. `db.<collectionName>.updateOne( <query>,<update>,<options> )`
@@ -120,11 +122,15 @@ update the first document where **item** equals **"paper"**:
 
    ```javascript
     db.inventory.updateOne(
+            //query
            { item: "paper" },
+            //update
            {
              $set: { "size.uom": "cm", status: "P" },
              $currentDate: { lastModified: true }
-           }
+           },
+           // update options (optional)
+           {}
         )
    ```
 
