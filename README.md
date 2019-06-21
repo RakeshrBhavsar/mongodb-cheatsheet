@@ -87,3 +87,11 @@ boolean | true/false
     { $or : [ { "gender" : "male" } , { "age" : "25" } ] }
     { $or : [ { "gender" : "male" } , { "age" : {"$in" : [20,25] } } ] }
     ```
+
+4. Element Operators ($exists , $type)
+
+    Examples: 
+    ```javascript
+    { "tags" : { $exists: true } }
+    { "posts" : { $type : "int"} }
+    ```
