@@ -85,4 +85,5 @@ boolean | true/false
     Examples: 
     ```javascript
     { $or : [ { "gender" : "male" } , { "age" : "25" } ] }
+    { $or : [ { "gender" : "male" } , { "age" : {"$in" : [20,25] } } ] }
     ```
