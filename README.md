@@ -113,27 +113,30 @@ boolean | true/false
 3. `db.<collectionName>.updateMany( <query>,<update>,<options> )`
 
 Update can be done using **$set** and **$unset** operator. 
+
 Examples: 
+
 update the first document where **item** equals **"paper"**:
 
-        ```javascript
-        db.inventory.updateOne(
+   ```javascript
+    db.inventory.updateOne(
            { item: "paper" },
            {
              $set: { "size.uom": "cm", status: "P" },
              $currentDate: { lastModified: true }
            }
         )
-        ```
+   ```
+
         
 update all documents where **qty** is **less than 50**.
 
-        ```javascript
-        db.inventory.updateMany(
+   ```javascript
+    db.inventory.updateMany(
            { "qty": { $lt: 50 } },
            {
              $set: { "size.uom": "in", status: "P" },
              $currentDate: { lastModified: true }
            }
         )
-        ```
+   ```
