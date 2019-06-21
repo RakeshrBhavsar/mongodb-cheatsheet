@@ -67,7 +67,7 @@ boolean | true/false
 
 2. AND Operator ($and)
 
-    Logically combines multiple conditions. Resulting documents must match all documents. 
+    Logically combines multiple conditions. Resulting documents must match **ALL** conditions. 
 
     Syntax: ``` { $and : [ { <condition1> } , { <condition2> }, ..] } ```
 
@@ -76,4 +76,13 @@ boolean | true/false
     { $and : [ { "gender" : "male" } , { "age" : "25" } ] }
     ```
 
+3. OR Operator ($or)
 
+    Logically combines multiple conditions. Resulting documents must match **ANY** any of the condition. 
+
+    Syntax: ``` { $or : [ { <condition1> } , { <condition2> }, ..] } ```
+
+    Examples: 
+    ```javascript
+    { $or : [ { "gender" : "male" } , { "age" : "25" } ] }
+    ```
