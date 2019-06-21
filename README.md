@@ -47,3 +47,33 @@ boolean | true/false
       ```javascript 
       db.<collectionName>.insertMany( [ {}, {}, {}] )
       ```
+      
+### Operators
+
+1. Comparison Operators
+    $eq |  $neq | $gt |  $gte | $lt |  $lte | $in | $nin 
+    --- | --- | --- | --- | --- | --- | --- | --- 
+
+
+    Syntax: `{ <fieldName> : { <operator> : <value>}}`
+
+    Examples: 
+    ```
+    { "favoriteFruit" : { "$ne" : "apple"} }
+    { "age" : { "$gt" : 23 } }
+    { "color" : {"$in" : ["green", "blue"] } }
+
+    ```
+
+2. AND Operator ($and)
+
+    Logically combines multiple conditions. Resulting documents must match all documents. 
+
+    Syntax: ``` { $and : [ { <condition1> } , { <condition2> }, ..] } ```
+
+    Examples: 
+    ```javascript
+    { $and : [ { "gender" : "male" } , { "age" : "25" } ] }
+    ```
+
+
