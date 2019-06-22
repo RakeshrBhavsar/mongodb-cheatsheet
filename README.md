@@ -161,3 +161,23 @@ b) $unset -> removes size.uom and status from inventory for items having quantit
             )
    ```
    
+#### Replace One Document
+
+Replaces a single document within the collection based on the query.
+
+Syntax: `db.<collectionName>.replaceOne( <query>,<replacementObject>,<options> )`
+
+Example:
+
+   ```javascript
+        try {
+           db.restaurant.replaceOne(
+              //query  
+              { "name" : "Central Perk Cafe" },
+              //replacement object
+              { "name" : "Central Pork" }
+           );
+        } catch (e){
+           print(e);
+        }
+   ```
