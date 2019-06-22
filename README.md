@@ -196,3 +196,19 @@ Example:
            print(e);
         }
    ```
+
+
+#### $rename
+The $rename operator updates the name of a field and has the following form:
+
+Syntax : `{$rename: { <field1>: <newName1>, <field2>: <newName2>, ... } }`
+
+Example:
+
+   ```javascript
+        db.shoppingCart.update(
+            { "cartId" : {$exists : true} },
+            { "cartId" : "orderId" , "anotherField" : "anotherName" },
+            {multi : true}
+        );
+   ```
