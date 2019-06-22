@@ -222,7 +222,7 @@ Example:
     5. $pullAll
     6. $
     
-    1. $push Operator -> Appends element to the array
+   1. $push Operator -> Appends element to the array
     
    Syntax : `{	$push:	{	<arrayFieldName>: <element>	}	}`	
 
@@ -245,3 +245,27 @@ Example:
             }
     )
 ```    
+
+ 2. $addToSet  -> Appends element to the array if this element doesn't exist already
+    
+   Syntax : `{	$addToSet:	{	<arrayFieldName>: <element>	}	}`
+
+
+   ```javascript
+    db.shoppingCart.update(
+            {	cartId:	561	},
+            {
+                    $addToSet: {
+                            cart:	"item1"
+                    }
+            }
+    )
+    db.shoppingCart.update(
+            {	cartId: 561 },
+            {
+                    $addToSet: {
+                            cart: { $each:["item2", "item3"] }
+                    }
+            }
+    )
+   ```
