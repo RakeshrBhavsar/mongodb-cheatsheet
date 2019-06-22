@@ -315,3 +315,35 @@ Example:
                 }
         );   
      ```
+
+#### Delete Operations:
+
+    a) Delete documents
+    b) Delete collections
+    c) Delete databases
+
+a) Delete Documents:
+
+    1. Remove
+    2. Delete One
+    3. Delete Many
+
+1. Remove
+
+       Removes All Documents that match query 
+       Syntax: `db.<collection>.remove(<query>)	`
+       
+       Removes One Document that matches query 
+       Syntax: `db.<collection>.remove(<query>, true)`
+       
+2. Delete One
+
+       Delete One Document 
+       Syntax: `db.<collection>.deleteOne(<query>)	`
+
+3. Delete Many
+
+       Delete Many Document 
+       Syntax: `db.<collection>.deleteMany(<query>)	`
+
+    
