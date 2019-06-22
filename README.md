@@ -116,33 +116,48 @@ Syntax:
 
 Update can be done using **$set** and **$unset** operator. 
 
-Examples: 
+a) $set
+   Examples: 
 
-update the first document where **item** equals **"paper"**:
-
+   update the first document where **item** equals **"paper"**:
+   
    ```javascript
-    db.inventory.updateOne(
-            //query
-           { item: "paper" },
-            //update
-           {
-             $set: { "size.uom": "cm", status: "P" },
-             $currentDate: { lastModified: true }
-           },
-           // update options (optional)
-           {}
-        )
+        db.inventory.updateOne(
+                //query
+               { item: "paper" },
+                //update
+               {
+                 $set: { "size.uom": "cm", status: "P" },
+                 $currentDate: { lastModified: true }
+               },
+               // update options (optional)
+               {}
+            )
    ```
 
-        
-update all documents where **qty** is **less than 50**.
+
+   update all documents where **qty** is **less than 50**.
 
    ```javascript
-    db.inventory.updateMany(
-           { "qty": { $lt: 50 } },
-           {
-             $set: { "size.uom": "in", status: "P" },
-             $currentDate: { lastModified: true }
-           }
-        )
+        db.inventory.updateMany(
+               { "qty": { $lt: 50 } },
+               {
+                 $set: { "size.uom": "in", status: "P" },
+                 $currentDate: { lastModified: true }
+               }
+            )
    ```
+
+b) $unset -> removes size.uom and status from inventory for items having quantity less than 50
+   Examples: 
+   Remove 
+   
+   ```javascript
+       db.inventory.update(
+              { "qty": { $lt: 50 } },
+               {
+                 $unset: { "size.uom": 1, status: 1 }
+               }
+            )
+   ```
+   
