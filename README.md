@@ -269,3 +269,18 @@ Example:
             }
     )
    ```
+
+3. $pop  -> Removes first or last element in the Array (<field>: -1 removes first element <field>: 1 removes last element)
+    
+   Syntax : `{	$pop:	{	<arrayFieldName>: <	-1	|	1	>	}	}	`
+
+      ```javascript
+        db.shoppingCart.update(
+                {	cartId:	561	},
+                {
+                        $pop: {
+                                cart:	1
+                        }
+                }
+        );  
+      ```
