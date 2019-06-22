@@ -160,6 +160,21 @@ b) $unset -> removes size.uom and status from inventory for items having quantit
                }
             )
    ```
+
+c) Combine $set and $unser operators
+   Examples: 
+   Remove 
+   
+   ```javascript
+       db.inventory.update(
+              { "qty": { $lt: 50 } },
+               {
+                 $set: { "size.uom": "in"
+                          , status: "P" },
+                 $unset: { "name": 1 }
+               }
+            )
+   ```   
    
 #### Replace One Document
 
