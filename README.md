@@ -212,3 +212,36 @@ Example:
             {multi : true}
         );
    ```
+
+#### Updating elements in an Array
+
+    1. $push
+    2. $addToSet
+    3. $pop
+    4. $pull
+    5. $pullAll
+    6. $
+    
+    1. $push Operator -> Appends element to the array
+    
+   Syntax : `{	$push:	{	<arrayFieldName>: <element>	}	}`	
+
+```javascript
+    db.shoppingCart.update(
+            {	cartId:	561	},
+            {
+                    $push: {
+                            cart:	"item1"
+                    }
+            }
+    )
+
+    db.shoppingCart.update(
+            {	cartId: 561 },
+            {
+                    $push: {
+                            cart: { $each: ["item2", "item3"] }
+                    }
+            }
+    )
+```    
