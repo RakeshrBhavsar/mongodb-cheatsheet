@@ -284,3 +284,34 @@ Example:
                 }
         );  
       ```
+
+4. $pull  -> Removes all elements in the Array matching specific element or condition
+
+    Syntax : `{	$pull:	{	<arrayFieldName>: <element	|	condition>	}	}`
+    
+     ```javascript
+        db.shoppingCart.update(
+                {	cartId: 561 },
+                {
+                        $pull: {
+                                cart: "item1",
+                                spentAmounts: {	$gt: 400 }
+                        }
+                }
+        )
+     ```
+     
+5. $pullAll  ->  Removes all elements in the Array that match specified values
+
+    Syntax : `{	$pullAll:	{	<arrayFieldName>: [	<value1>,	<value2>,	...]	}	}`	
+    
+     ```javascript    
+        db.shoppingCart.update(
+                {	cartId:	561	},
+                {
+                        $pullAll: {
+                                cart:	["item1",	"item2"]}
+                        }
+                }
+        );   
+     ```
